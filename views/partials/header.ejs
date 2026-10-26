@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="/">Express + MongoDB</a>
+  <nav>
+    <a href="/">Головна</a>
+    <% if (currentUser) { %>
+      <a href="/users">Користувачі</a>
+      <span class="nav-user"><%= currentUser.name %></span>
+      <form class="inline" action="/logout" method="post">
+        <button type="submit">Вийти</button>
+      </form>
+    <% } else { %>
+      <a href="/login">Увійти</a>
+      <a href="/register">Реєстрація</a>
+    <% } %>
+  </nav>
+</header>
+<main class="container">

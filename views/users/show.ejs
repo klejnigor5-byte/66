@@ -1,0 +1,10 @@
+<%- include("../partials/header", { title }) %>
+<h1>Інформація про користувача</h1>
+<section class="panel">
+  <p><strong>ID:</strong> <%= user._id %></p>
+  <p><strong>Ім’я:</strong> <%= user.name %></p>
+  <p><strong>Email:</strong> <%= user.email %></p>
+  <p><strong>Створено:</strong> <%= user.createdAt ? new Date(user.createdAt).toLocaleString("uk-UA") : "—" %></p>
+</section>
+<a href="/users">← До списку користувачів</a>
+<%- include("../partials/footer") %>

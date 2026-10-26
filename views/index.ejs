@@ -1,0 +1,13 @@
+<%- include("partials/header", { title }) %>
+<section class="hero">
+  <h1>Express + MongoDB Atlas</h1>
+  <p>Приклад сервера з авторизацією Passport і читанням даних з MongoDB.</p>
+  <% if (currentUser) { %>
+    <p>Ви увійшли як <strong><%= currentUser.name %></strong>.</p>
+    <a class="button" href="/users">Переглянути користувачів</a>
+  <% } else { %>
+    <a class="button" href="/register">Створити обліковий запис</a>
+    <a class="button secondary" href="/login">Увійти</a>
+  <% } %>
+</section>
+<%- include("partials/footer") %>

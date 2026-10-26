@@ -1,0 +1,10 @@
+<%- include("partials/header", { title }) %>
+<h1>Реєстрація</h1>
+<% if (error) { %><p class="alert"><%= error %></p><% } %>
+<form class="form" action="/register" method="post">
+  <label>Ім’я<input name="name" required maxlength="80" autocomplete="name"></label>
+  <label>Email<input name="email" type="email" required autocomplete="email"></label>
+  <label>Пароль (мінімум 8 символів)<input name="password" type="password" minlength="8" required autocomplete="new-password"></label>
+  <button type="submit">Зареєструватися</button>
+</form>
+<%- include("partials/footer") %>

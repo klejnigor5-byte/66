@@ -1,0 +1,23 @@
+<%- include("../partials/header", { title }) %>
+<h1>Користувачі з MongoDB Atlas</h1>
+<p>Ці записи отримані з колекції <code>users</code> у базі MongoDB.</p>
+<% if (!users.length) { %>
+  <p>Поки що користувачів немає. Зареєструйте нового користувача.</p>
+<% } else { %>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Ім’я</th><th>Email</th><th>Дата створення</th><th></th></tr></thead>
+      <tbody>
+      <% users.forEach((user) => { %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= user.createdAt ? new Date(user.createdAt).toLocaleString("uk-UA") : "—" %></td>
+          <td><a href="/users/<%= user._id %>">Деталі</a></td>
+        </tr>
+      <% }) %>
+      </tbody>
+    </table>
+  </div>
+<% } %>
+<%- include("../partials/footer") %>
